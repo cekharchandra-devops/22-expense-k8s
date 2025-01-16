@@ -21,6 +21,7 @@ spec:
       containers:
         - name: mysql
           image: cekharch/mysql:v7
+          
 ---
 apiVersion: v1
 kind: Service
