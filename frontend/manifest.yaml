@@ -21,6 +21,13 @@ spec:
       containers:
         - name: frontend
           image: cekharch/frontend:v3.0
+          resources:  
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
