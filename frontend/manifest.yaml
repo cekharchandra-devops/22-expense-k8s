@@ -53,6 +53,7 @@ spec:
       containers:
         - name: frontend
           image: cekharch/frontend:v3.0
+          command: [ "sh", "-c", "sleep 1000"]
           livenessProbe:
             httpGet:
               path: /
