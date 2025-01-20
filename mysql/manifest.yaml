@@ -20,7 +20,17 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: cekharch/mysql:v7
+          image: cekharch/mysql-volumes:v2
+          readinessProbe:
+            tcpSocket:
+              port: 3306
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 3306
+            initialDelaySeconds: 15
+            periodSeconds: 10
           
 ---
 apiVersion: v1
