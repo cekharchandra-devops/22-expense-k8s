@@ -95,7 +95,7 @@ metadata:
     app: frontend
     env: prod
 spec:
-  type: LoadBalancer
+  # type: LoadBalancer
   selector:
     app: frontend
     env: prod
@@ -104,3 +104,15 @@ spec:
       port: 80
       targetPort: 80
       name: frontend-svc-port
+
+---
+apiVersion: elbv2.k8s.aws/v1beta1
+kind: TargetGroupBinding
+metadata:
+  name: frontend
+  namespace: frontend
+spec:
+  serviceRef:
+    name: frontend
+    port: 80
+  targetGroupARN: arn:aws:elasticloadbalancing:us-east-1:528757792370:targetgroup/expense-dev/7051fe87db261b8a
